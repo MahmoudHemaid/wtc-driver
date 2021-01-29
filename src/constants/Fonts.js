@@ -10,7 +10,7 @@ const size = {
   xxLarge: 42,
   xLarge: 24,
   large: 20,
-  regular: 16,
+  normal: 16,
   medium: 14,
   small: 12,
   xSmall: 10,

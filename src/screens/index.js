@@ -1,3 +1,9 @@
 export {default as Screen} from './Screen';
 export {default as HomeScreen} from './HomeScreen';
-export {default as SignInScreen} from './SignInScreen';
+export {default as FleetCodeScreen} from './FleetCodeScreen';
+export {default as PhoneNumberScreen} from './PhoneNumberScreen';
+export {default as VerificationCodeScreen} from './VerificationCodeScreen';
+export {default as MyTripsScreen} from './MyTripsScreen';
+export {default as ReportsScreen} from './ReportsScreen';
+export {default as MoreScreen} from './MoreScreen';
+export {default as TripDetailsScreen} from './TripDetailsScreen';

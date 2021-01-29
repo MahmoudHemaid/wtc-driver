@@ -4,7 +4,7 @@ import {Context} from '../utils';
 import {RootStackNavigator} from './stacks';
 
 export default (props) => {
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
 
   const context = {
     isLogged,

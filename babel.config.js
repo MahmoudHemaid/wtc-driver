@@ -1,6 +1,7 @@
 module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [
+    'jsx-control-statements',
     [
       'module-resolver',
       {
@@ -26,6 +27,7 @@ module.exports = {
           '@app/config': './src/config',
           '@app/redux': './src/redux',
           '@app/utils': './src/utils',
+          '@app/assets': './src/assets',
         },
       },
     ],

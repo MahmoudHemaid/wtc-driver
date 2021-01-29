@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import SignInScreen from './SignInScreen';
+import VerificationCodeScreen from './VerificationCodeScreen';
 
 const mapStateToProps = (state, ownProps) => {
   return {};
@@ -8,4 +8,7 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignInScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(VerificationCodeScreen);

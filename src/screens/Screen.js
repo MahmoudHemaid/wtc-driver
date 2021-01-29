@@ -5,14 +5,11 @@ import {Colors, Layout} from '@app/constants';
 import PropTypes from 'prop-types';
 
 export default function Screen(props) {
-  const ViewComponent = props.fullscreen ? View : SafeAreaView;
+  const ViewComponent = props.safe ? SafeAreaView : View;
   return (
     <ViewComponent {...props} style={[styles.container, props.containerStyle]}>
       <View
-        style={[
-          props.fullscreen ? {flex: 1} : styles.contentContainer,
-          props.style,
-        ]}>
+        style={[props.safe ? styles.contentContainer : {flex: 1}, props.style]}>
         {props.children}
       </View>
     </ViewComponent>
@@ -22,7 +19,7 @@ export default function Screen(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.secondaryWhite,
+    backgroundColor: Colors.primaryColor,
   },
   contentContainer: {
     flex: 1,
@@ -34,11 +31,11 @@ const styles = StyleSheet.create({
 Screen.propTypes = {
   style: ViewPropTypes.style,
   containerStyle: ViewPropTypes.style,
-  fullscreen: PropTypes.oneOf([true, false, undefined]),
+  safe: PropTypes.oneOf([true, false, undefined]),
 };
 
 Screen.defaultProps = {
   style: {},
   containerStyle: {},
-  fullscreen: false,
+  safe: false,
 };

@@ -17,6 +17,7 @@
 		2DCD954D1E0B4F2C00145EB5 /* wtc_driverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* wtc_driverTests.m */; };
 		598A42C98CC84D185CE4C6CB /* libPods-wtc_driver-wtc_driverTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02BA3079A9B94EC5D8A85308 /* libPods-wtc_driver-wtc_driverTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		872F6DD8252D230F004CD85D /* Native.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872F6DD7252D230F004CD85D /* Native.swift */; };
 		C1EABD3FCAE7770D4DB53253 /* libPods-wtc_driver-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C9D18D5F78E29BD717AA5F /* libPods-wtc_driver-tvOS.a */; };
 		DB143454F981EDAEC2B14183 /* libPods-wtc_driver-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 527F602755A730FF55099FD9 /* libPods-wtc_driver-tvOSTests.a */; };
 		F4044B83DCDB37658580110F /* libPods-wtc_driver.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D0701229CC7D1A6CCD8F05C /* libPods-wtc_driver.a */; };
@@ -63,6 +64,8 @@
 		540D5142243B352243B2FA77 /* Pods-wtc_driver-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wtc_driver-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-wtc_driver-tvOSTests/Pods-wtc_driver-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		54B6DDE2CA5416C8AEA08BA1 /* Pods-wtc_driver-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wtc_driver-tvOS.release.xcconfig"; path = "Target Support Files/Pods-wtc_driver-tvOS/Pods-wtc_driver-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = wtc_driver/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		872F6DD6252D230F004CD85D /* wtc_driver-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "wtc_driver-Bridging-Header.h"; sourceTree = "<group>"; };
+		872F6DD7252D230F004CD85D /* Native.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Native.swift; sourceTree = "<group>"; };
 		876A63B7252A6E4700EE1840 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		876A63B8252A6E4700EE1840 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		876A63B9252A6E4700EE1840 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				872F6DD7252D230F004CD85D /* Native.swift */,
+				872F6DD6252D230F004CD85D /* wtc_driver-Bridging-Header.h */,
 			);
 			name = wtc_driver;
 			sourceTree = "<group>";
@@ -333,7 +338,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1200;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -423,6 +428,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-wtc_driver/Pods-wtc_driver-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -443,6 +449,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
@@ -575,6 +582,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-wtc_driver-wtc_driverTests/Pods-wtc_driver-wtc_driverTests-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
@@ -595,6 +603,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
@@ -671,6 +680,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				872F6DD8252D230F004CD85D /* Native.swift in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -713,6 +723,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CBEBECD3E2AF291D33DECEE2 /* Pods-wtc_driver-wtc_driverTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -736,6 +747,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 09D0A475A04D3EFDF529ADEC /* Pods-wtc_driver-wtc_driverTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = wtc_driverTests/Info.plist;
@@ -769,6 +781,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = wtc_driver;
+				SWIFT_OBJC_BRIDGING_HEADER = "wtc_driver-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -791,6 +804,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = wtc_driver;
+				SWIFT_OBJC_BRIDGING_HEADER = "wtc_driver-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

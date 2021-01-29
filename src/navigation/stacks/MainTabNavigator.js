@@ -1,8 +1,14 @@
 import * as React from 'react';
-import {HomeScreen} from '../../screens';
+import {
+  HomeScreen,
+  MyTripsScreen,
+  ReportsScreen,
+  MoreScreen,
+} from '@app/screens';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {SCREEN_KEYS} from '@app/constants';
-
+import {Colors, SCREEN_KEYS} from '@app/constants';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {AvailabilitySwitcher} from '@app/components';
 const BottomTab = createBottomTabNavigator();
 
 export default function BottomTabNavigator({navigation, route}) {
@@ -10,21 +16,78 @@ export default function BottomTabNavigator({navigation, route}) {
   // currently active tab. Learn more in the documentation:
   // https://reactnavigation.org/docs/en/screen-options-resolution.html
   React.useEffect(() => {
-    navigation.setOptions({headerTitle: getHeaderTitle(route)});
+    const routeName =
+      route.state?.routes[route.state.index]?.name ?? SCREEN_KEYS.HOME;
+
+    navigation.setOptions({headerTitle: getHeaderTitle(routeName)});
   }, [route]);
   return (
-    <BottomTab.Navigator initialRouteName={SCREEN_KEYS.HOME}>
-      <BottomTab.Screen name={SCREEN_KEYS.HOME} component={HomeScreen} />
+    <BottomTab.Navigator
+      tabBarOptions={{
+        style: {
+          backgroundColor: Colors.headerColor,
+          borderTopWidth: 0,
+        },
+        activeTintColor: Colors.secondaryColor,
+        inactiveTintColor: Colors.lightColor,
+      }}
+      initialRouteName={SCREEN_KEYS.HOME}>
+      <BottomTab.Screen
+        name={SCREEN_KEYS.HOME}
+        options={{
+          title: 'Home',
+          tabBarIcon: (props) => (
+            <MaterialCommunityIcons name={'home'} {...props} />
+          ),
+        }}
+        component={HomeScreen}
+      />
+      <BottomTab.Screen
+        name={SCREEN_KEYS.MY_TRIPS}
+        options={{
+          title: 'My Trips',
+          tabBarIcon: (props) => (
+            <MaterialCommunityIcons name={'map-marker-check'} {...props} />
+          ),
+          tabBarBadge: 2,
+        }}
+        component={MyTripsScreen}
+      />
+      <BottomTab.Screen
+        name={SCREEN_KEYS.REPORTS}
+        options={{
+          title: 'Reports',
+          tabBarIcon: (props) => (
+            <MaterialCommunityIcons name={'chart-bar'} {...props} />
+          ),
+        }}
+        component={ReportsScreen}
+      />
+      <BottomTab.Screen
+        name={SCREEN_KEYS.MORE}
+        options={{
+          title: 'More',
+          tabBarIcon: (props) => (
+            <MaterialCommunityIcons name={'menu'} {...props} />
+          ),
+        }}
+        component={MoreScreen}
+      />
     </BottomTab.Navigator>
   );
 }
 
-function getHeaderTitle(route) {
-  const routeName =
-    route.state?.routes[route.state.index]?.name ?? SCREEN_KEYS.HOME;
-
+function getHeaderTitle(routeName) {
   switch (routeName) {
     case SCREEN_KEYS.HOME:
-      return 'Home';
+      return (props) => <AvailabilitySwitcher {...props} />;
+    case SCREEN_KEYS.MY_TRIPS:
+      return 'My Trips';
+    case SCREEN_KEYS.REPORTS:
+      return 'Reports';
+    case SCREEN_KEYS.MORE:
+      return 'More';
+    default:
+      return '';
   }
 }

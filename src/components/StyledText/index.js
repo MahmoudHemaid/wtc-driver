@@ -47,8 +47,8 @@ StyledText.propTypes = {
 StyledText.defaultProps = {
   bold: false,
   center: false,
-  size: Fonts.size.regular,
-  color: Colors.white,
+  size: Fonts.size.normal,
+  color: Colors.textColor,
   containerProps: {},
   touchable: false,
   containerStyle: {},

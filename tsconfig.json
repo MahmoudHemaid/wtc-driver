@@ -21,7 +21,8 @@
       "@app/helpers": ["./src/helpers"],
       "@app/config": ["./src/config"],
       "@app/redux": ["./src/redux"],
-      "@app/utils": ["./src/utils"]
+      "@app/utils": ["./src/utils"],
+      "@app/assets": ["./src/assets"]
     }
   },
   "exclude": [
